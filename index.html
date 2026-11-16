@@ -16,6 +16,7 @@
       --accent-hover: #0284c7;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
@@ -69,7 +70,7 @@
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
     /* Section Headings */
-    section { padding: 50px 0; }
+    section { padding: 65px 0; scroll-margin-top: 70px; }
     .section-title { font-size: 1.6rem; margin-bottom: 8px; }
     .section-sub { color: var(--muted); margin-bottom: 32px; font-size: 0.95rem; }
 
@@ -118,20 +119,57 @@
     .skill-box h4 { color: var(--accent); margin-bottom: 8px; font-size: 0.95rem; }
     .skill-box p { color: var(--muted); font-size: 0.9rem; }
 
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: 12px;
+      transition: transform 0.2s, border-color 0.2s;
+      display: block;
+    }
+    .contact-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+    .contact-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .contact-value {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-word;
+    }
+    .contact-hint {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
     /* Footer */
     footer {
       border-top: 1px solid var(--border);
-      padding: 40px 0;
-      margin-top: 40px;
+      padding: 32px 0;
+      margin-top: 20px;
       text-align: center;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
-    footer a { color: var(--accent); margin: 0 10px; }
 
     @media (max-width: 600px) {
       .hero h1 { font-size: 2.1rem; }
-      .nav-links { display: none; }
+      .nav-links { gap: 16px; font-size: 0.88rem; }
     }
   </style>
 </head>
@@ -274,14 +312,42 @@
     </div>
   </section>
 
-  <footer id="contact">
+  <section id="contact">
     <div class="container">
-      <p><strong>Nurul Umairah Suhana Binti Khaliluddin</strong> • Puchong, Selangor</p>
-      <p style="margin-top: 10px;">
-        <a href="mailto:umairahsuhana04@gmail.com">umairahsuhana04@gmail.com</a> |
-        <a href="https://my.linkedin.com/in/umairah-suhana-0a4732330" target="_blank">LinkedIn</a> |
-        <a href="https://github.com/umairahsuhana" target="_blank">GitHub</a>
-      </p>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-sub">Open to Web Developer & Data Analyst internship opportunities starting March 2027. Feel free to reach out directly.</p>
+      
+      <div class="contact-grid">
+        <a href="https://wa.me/601139028153" target="_blank" class="contact-card">
+          <div class="contact-label">Phone / WhatsApp</div>
+          <div class="contact-value">+6011-39028153</div>
+          <div class="contact-hint">Click to chat on WhatsApp &rarr;</div>
+        </a>
+
+        <a href="mailto:umairahsuhana04@gmail.com" class="contact-card">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">umairahsuhana04@gmail.com</div>
+          <div class="contact-hint">Click to send an email &rarr;</div>
+        </a>
+
+        <a href="https://my.linkedin.com/in/umairah-suhana-0a4732330" target="_blank" class="contact-card">
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">Umairah Suhana</div>
+          <div class="contact-hint">Connect professionally &rarr;</div>
+        </a>
+
+        <a href="https://github.com/umairahsuhana" target="_blank" class="contact-card">
+          <div class="contact-label">GitHub & Location</div>
+          <div class="contact-value">@umairahsuhana</div>
+          <div class="contact-hint">Puchong, Selangor, Malaysia &rarr;</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Nurul Umairah Suhana Binti Khaliluddin. Built with HTML & CSS.</p>
     </div>
   </footer>
 
