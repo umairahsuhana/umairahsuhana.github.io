@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Umairah Suhana | Web Developer & Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1050px; margin: 0 auto; padding: 0 24px; }
+
+    /* Navigation */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.5px; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; font-size: 0.95rem; color: var(--muted); }
+    .nav-links a:hover { color: var(--text); }
+
+    /* Hero Section */
+    .hero { padding: 80px 0 60px; }
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero h1 { font-size: 2.75rem; line-height: 1.2; margin-bottom: 16px; letter-spacing: -1px; }
+    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 650px; margin-bottom: 32px; }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn {
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: #0f172a; }
+    .btn-primary:hover { background: var(--accent-hover); color: #fff; }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Section Headings */
+    section { padding: 50px 0; }
+    .section-title { font-size: 1.6rem; margin-bottom: 8px; }
+    .section-sub { color: var(--muted); margin-bottom: 32px; font-size: 0.95rem; }
+
+    /* Projects Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      background: #0b1120;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .card-tag { font-size: 0.75rem; color: var(--accent); font-weight: 600; text-transform: uppercase; margin-bottom: 6px; }
+    .card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 0.92rem; margin-bottom: 18px; flex: 1; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .tags span {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+    }
+    .card-link { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
+    .card-link:hover { text-decoration: underline; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+    .skill-box { background: var(--surface); border: 1px solid var(--border); padding: 20px; border-radius: 10px; }
+    .skill-box h4 { color: var(--accent); margin-bottom: 8px; font-size: 0.95rem; }
+    .skill-box p { color: var(--muted); font-size: 0.9rem; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      margin-top: 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    footer a { color: var(--accent); margin: 0 10px; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.1rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">Umairah<span>.</span></div>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <span class="badge">Available for Sem 7 Internship • Starting March 2027</span>
+      <h1>Nurul Umairah Suhana</h1>
+      <p>
+        Final-year Bachelor of Computer Science (Hons.) student at UiTM Shah Alam (CGPA: 3.61). 
+        I bridge responsive web development with machine learning and data analytics to turn complex data into intuitive applications.
+      </p>
+      <div class="btn-group">
+        <a href="resume.pdf" target="_blank" class="btn btn-primary">Download Resume (PDF)</a>
+        <a href="https://github.com/umairahsuhana" target="_blank" class="btn btn-outline">GitHub Profile</a>
+        <a href="https://my.linkedin.com/in/umairah-suhana-0a4732330" target="_blank" class="btn btn-outline">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-sub">Selected work spanning full-stack web engineering, hybrid NLP/ML, and business intelligence.</p>
+
+      <div class="grid">
+        <!-- Project 1 -->
+        <article class="card">
+          <img src="fyp-dashboard.png" alt="Hybrid Student Performance Monitoring System Dashboard">
+          <div class="card-body">
+            <span class="card-tag">Final Year Project • ML & Web</span>
+            <h3>Hybrid Student Performance Monitoring System</h3>
+            <p>
+              Cohort-based early-warning platform combining SVM (quantitative grades) and Naïve Bayes NLP (student feedback) to classify High, Medium, and Low risk tiers and generate precautionary roadmaps.
+            </p>
+            <div class="tags">
+              <span>Python (Flask)</span>
+              <span>Oracle DB</span>
+              <span>SVM & Naïve Bayes</span>
+              <span>HTML/CSS</span>
+            </div>
+            <a href="https://github.com/umairahsuhana" target="_blank" class="card-link">View Repository &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card">
+          <img src="awanreka.png" alt="AwanReka SME Website">
+          <div class="card-body">
+            <span class="card-tag">Commercial Internship • Web Dev</span>
+            <h3>AwanReka SME Web Showcase</h3>
+            <p>
+              Designed and deployed a mobile-first Malay-language website during my internship at Skytomato Sdn Bhd to promote web design services for Malaysian SMEs, complete with SEO and analytics tracking.
+            </p>
+            <div class="tags">
+              <span>WordPress</span>
+              <span>Elementor</span>
+              <span>PHP</span>
+              <span>CSS3</span>
+            </div>
+            <a href="https://awanreka.com" target="_blank" class="card-link">Visit Live Site &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card">
+          <img src="powerbi-hotel.png" alt="Hotel Booking Demand Power BI Dashboard">
+          <div class="card-body">
+            <span class="card-tag">Data Analytics • BI</span>
+            <h3>Hotel Booking Demand & Cancellation Analytics</h3>
+            <p>
+              Cleaned and modeled multi-year hospitality booking datasets in Power BI using custom DAX measures to identify seasonal occupancy trends, lead-time patterns, and cancellation drivers.
+            </p>
+            <div class="tags">
+              <span>Power BI</span>
+              <span>DAX</span>
+              <span>Data Modeling</span>
+              <span>Excel</span>
+            </div>
+            <a href="https://github.com/umairahsuhana" target="_blank" class="card-link">View Project Files &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="card">
+          <img src="campusmart.png" alt="CampusMart Web Application">
+          <div class="card-body">
+            <span class="card-tag">Full-Stack Web Application</span>
+            <h3>CampusMart Student E-Marketplace</h3>
+            <p>
+              Developed a university campus marketplace web application featuring student verification workflows, structured relational database schemas, and dynamic product listing management.
+            </p>
+            <div class="tags">
+              <span>Java / PHP</span>
+              <span>MySQL</span>
+              <span>JavaScript</span>
+              <span>HTML/CSS</span>
+            </div>
+            <a href="https://github.com/umairahsuhana" target="_blank" class="card-link">View Source Code &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Toolkit</h2>
+      <p class="section-sub">Core languages, frameworks, and analytics tools I work with.</p>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h4>Languages & Querying</h4>
+          <p>Python, SQL, PHP, JavaScript, HTML5, CSS3, Java, C++</p>
+        </div>
+        <div class="skill-box">
+          <h4>Web & Databases</h4>
+          <p>Flask, WordPress (Elementor), REST APIs, Oracle DB, MySQL, MongoDB</p>
+        </div>
+        <div class="skill-box">
+          <h4>Data & Machine Learning</h4>
+          <p>Power BI, Scikit-Learn (SVM, Naïve Bayes), Pandas, NLTK/VADER, WEKA, Excel</p>
+        </div>
+        <div class="skill-box">
+          <h4>Design & Workflow</h4>
+          <p>Figma, Git & GitHub, VS Code, Oracle SQL Developer, Google Analytics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="container">
+      <p><strong>Nurul Umairah Suhana Binti Khaliluddin</strong> • Puchong, Selangor</p>
+      <p style="margin-top: 10px;">
+        <a href="mailto:umairahsuhana04@gmail.com">umairahsuhana04@gmail.com</a> |
+        <a href="https://my.linkedin.com/in/umairah-suhana-0a4732330" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/umairahsuhana" target="_blank">GitHub</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
